@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Property Recommendation</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <h2>🎯 Property Recommendation</h2>
+        <form method="post" action="/recommend">
+            <input type="number" name="max_budget" placeholder="Maximum Budget ($)" required>
+            <input type="text" name="neighborhood" placeholder="Preferred Neighborhood (or All)">
+            <input type="number" name="min_bedrooms" placeholder="Min Bedrooms" value="1">
+            <button type="submit">Find Matching Properties</button>
+        </form>
+        {% if recommendations %}
+        <div class="results">
+            {% for item in recommendations %}
+            <div class="card">
+                <h4>Property #{{ item.id }} - Price: ${{ "{:,.0f}".format(item.price) }}</h4>
+                <p><strong>Neighborhood:</strong> {{ item.neighborhood }} | <strong>Bedrooms:</strong> {{ item.bedrooms }} | <strong>Area:</strong> {{ item.sqft }} sqft</p>
+                <p><strong>Reason:</strong> {{ item.explanation }}</p>
+            </div>
+            {% endfor %}
+        </div>
+        {% endif %}
+        <p><a href="/">← Back to Home</a></p>
+    </div>
+</body>
+</html>

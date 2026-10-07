@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AI Real Estate Consultant</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <h2>🤖 AI Real Estate Consultant</h2>
+        <form method="post" action="/ai-chat">
+            <textarea name="query" placeholder="Ask about real estate trends, buying tips, or market advice..." required></textarea>
+            <button type="submit">Ask AI</button>
+        </form>
+        {% if answer %}
+        <div class="chat-response">
+            <p><strong>Query:</strong> {{ query }}</p>
+            <p><strong>Answer:</strong> {{ answer }}</p>
+        </div>
+        {% endif %}
+        <p><a href="/">← Back to Home</a></p>
+    </div>
+</body>
+</html>

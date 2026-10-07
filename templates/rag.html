@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>RAG Knowledge Assistant</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <h2>📚 RAG Legal & Document Assistant</h2>
+        <form method="post" action="/rag-docs">
+            <input type="text" name="query" placeholder="Ask questions based on uploaded legal guides..." required>
+            <button type="submit">Search Documents</button>
+        </form>
+        {% if answer %}
+        <div class="chat-response">
+            <p><strong>Question:</strong> {{ query }}</p>
+            <p><strong>Doc Insights:</strong> {{ answer }}</p>
+        </div>
+        {% endif %}
+        <p><a href="/">← Back to Home</a></p>
+    </div>
+</body>
+</html>

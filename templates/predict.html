@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Predict Property Price</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <h2>💰 Predict Property Price</h2>
+        <form method="post" action="/predict">
+            <input type="number" name="GrLivArea" placeholder="Living Area (sq ft)" required>
+            <input type="number" name="OverallQual" placeholder="Overall Quality (1-10)" min="1" max="10" required>
+            <input type="number" name="YearBuilt" placeholder="Year Built (e.g. 2005)" required>
+            <input type="number" name="TotalBsmtSF" placeholder="Basement Area (sq ft)" required>
+            <input type="number" name="FullBath" placeholder="Full Bathrooms" required>
+            <input type="number" name="BedroomAbvGr" placeholder="Bedrooms" required>
+            <input type="number" name="GarageCars" placeholder="Garage Capacity (Cars)" required>
+            <input type="text" name="Neighborhood" placeholder="Neighborhood (e.g. CollgCr)" required>
+            <button type="submit">Predict Price</button>
+        </form>
+        {% if prediction %}
+        <div class="result-box">
+            <h3>Estimated Price: {{ prediction }}</h3>
+        </div>
+        {% endif %}
+        <p><a href="/">← Back to Home</a></p>
+    </div>
+</body>
+</html>
