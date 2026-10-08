@@ -1,7 +1,6 @@
-fastapi
+﻿fastapi
 uvicorn
 python-dotenv
 langchain-groq
 langchain-community
 langchain-core
-fastembed
