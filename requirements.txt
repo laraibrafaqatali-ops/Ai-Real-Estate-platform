@@ -4,3 +4,5 @@ python-dotenv
 langchain-groq
 langchain-community
 langchain-core
+joblib
+scikit-learn
